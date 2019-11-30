@@ -51,7 +51,7 @@ const gameState = {
         this.canvas = document.getElementById("canvas");
         this.ctx = canvas.getContext("2d");
     }
-}
+};
 
 /**********************************************************************
 
@@ -115,7 +115,7 @@ const menu = {
 
             const height = measure.actualBoundingBoxAscent + measure.actualBoundingBoxDescent + 5;
             this.buttonsSize.height = height > this.buttonsSize.height ? height : this.buttonsSize.height;
-        }
+        };
 
         this.calculatedButtons = this.buttons.forEach(calulateButton);
     },
@@ -146,7 +146,7 @@ const menu = {
             keyup: () => {
                 this.state.buttonPressed = "";
             }
-        }
+        };
     },
     loop: function loop(ctx) {
 
@@ -186,7 +186,7 @@ const menu = {
             ctx.fillRect(menuSize.x, menuSize.y, menuSize.width, menuSize.height);
             ctx.fillStyle = "#33aa33";
             ctx.fillRect(menuSize.x + menuBorder, menuSize.y + menuBorder, menuSize.width - 2 * menuBorder, menuSize.height - 2 * menuBorder);
-        }
+        };
 
         const drawButton = (button, index) => {
 
@@ -226,7 +226,7 @@ const menu = {
             this.selected = this.buttons.length - 1;
         }
     }
-}
+};
 
 /**********************************************************************
 
@@ -242,8 +242,8 @@ const game = {
     init: function init(ctx) {
         alert("Funkcja nie jest skończona!");
 
-        setTimeout(() => gameState.handleScene(MENU), 100) // Powrót do menu
-        return {} // Puste handlery, póki co są tutaj żeby funkcja nie
+        setTimeout(() => gameState.handleScene(MENU), 100); // Powrót do menu
+        return {}; // Puste handlery, póki co są tutaj żeby funkcja nie
                   // odpaliła pętli gry tj. 'loop'
 
         this.loop(ctx);
@@ -254,13 +254,13 @@ const game = {
         // że piłka zmienia kierunek, przesunęła się itp. były
         // wykonywane tutaj, a nie w draw()
 
-        draw(ctx)
+        draw(ctx);
         setTimeout(() => this.loop(ctx), SPF); // Odpalenie kolejnego frame'a
     },
     draw: function draw() {
         // Rysowanko
     }
-}
+};
 
 /**********************************************************************
 
@@ -288,4 +288,4 @@ function docReady(fn) {
 }    
 
 /* Uruchomienie skryptu */
-docReady(main)
+docReady(main);
