@@ -1,0 +1,1 @@
+Uruchamiasz poprzez index.html
