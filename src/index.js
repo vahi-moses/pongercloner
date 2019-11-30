@@ -98,10 +98,12 @@ const menu = {
         y: 10
     },
     state: {
-        buttonPressed: ""
+        buttonPressed: "",
+        shouldFrame: true
     },
     setInitialVars: function setInitialVars() {
         this.selected = 0;
+        this.state.shouldFrame = true;
     },
     calculateButtons: function calculateButtons(ctx) {
         ctx.font = this.font;
@@ -167,11 +169,14 @@ const menu = {
             case ENTER:
                 gameState.handleScene(this.buttons[this.selected].scene);
                 this.state.buttonPressed = "";
+                this.state.shouldFrame = false
                 break;
         }
 
-        // Kolejny frame
-        setTimeout(() => this.loop(ctx), SPF);
+        if (this.state.shouldFrame) {
+            // Kolejny frame
+            setTimeout(() => this.loop(ctx), SPF);
+        }
     },
     draw: function draw(ctx) {
 
